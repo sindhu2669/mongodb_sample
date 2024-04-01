@@ -1,5 +1,6 @@
-package com.example.expense.tracker;
+package com.example.expense.tracker.integrationTest;
 
+import com.example.expense.tracker.ExpenseTrackerApplication;
 import com.example.expense.tracker.model.Category;
 import org.junit.Assert;
 import org.junit.Test;

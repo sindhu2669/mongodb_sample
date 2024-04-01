@@ -1,5 +1,6 @@
-package com.example.expense.tracker;
+package com.example.expense.tracker.integrationTest;
 
+import com.example.expense.tracker.ExpenseTrackerApplication;
 import com.example.expense.tracker.model.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
@@ -83,7 +84,6 @@ public class TransactionIntegrationTest {
         // Send HTTP DELETE request to delete an existing transaction
         String id = "1"; // Assuming there's a transaction with ID 1
         restTemplate.delete(createURLWithPort("/home/api/transaction/" + id));
-
     }
 
     private String createURLWithPort(String uri) {

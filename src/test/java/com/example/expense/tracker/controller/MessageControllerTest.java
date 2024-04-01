@@ -1,4 +1,4 @@
-package com.example.expense.tracker.RestController;
+package com.example.expense.tracker.controller;
 
 import com.example.expense.tracker.Repository.UserRepository;
 import com.example.expense.tracker.model.User;
