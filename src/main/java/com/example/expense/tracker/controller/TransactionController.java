@@ -1,6 +1,6 @@
 package com.example.expense.tracker.controller;
 
-import com.example.expense.tracker.Service.TransactionService;
+import com.example.expense.tracker.service.TransactionService;
 import com.example.expense.tracker.model.Transaction;
 import com.example.expense.tracker.model.TransactionRequest;
 import org.springframework.beans.factory.annotation.Autowired;

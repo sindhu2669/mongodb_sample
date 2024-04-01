@@ -1,6 +1,6 @@
-package com.example.expense.tracker.Repository;
+package com.example.expense.tracker.repository;
 
-import com.example.expense.tracker.Service.CategoryService;
+import com.example.expense.tracker.service.CategoryService;
 import com.example.expense.tracker.model.Category;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

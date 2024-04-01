@@ -1,6 +1,6 @@
-package com.example.expense.tracker.Service;
+package com.example.expense.tracker.service;
 
-import com.example.expense.tracker.Repository.TransactionRepository;
+import com.example.expense.tracker.repository.TransactionRepository;
 import com.example.expense.tracker.model.Transaction;
 import com.example.expense.tracker.model.TransactionRequest;
 import org.junit.jupiter.api.BeforeEach;

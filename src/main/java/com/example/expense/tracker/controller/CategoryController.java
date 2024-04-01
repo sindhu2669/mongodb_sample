@@ -1,6 +1,6 @@
 package com.example.expense.tracker.controller;
 
-import com.example.expense.tracker.Service.CategoryService;
+import com.example.expense.tracker.service.CategoryService;
 import com.example.expense.tracker.model.Category;
 import com.example.expense.tracker.model.CategoryRequest;
 import org.springframework.beans.factory.annotation.Autowired;

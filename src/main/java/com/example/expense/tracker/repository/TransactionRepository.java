@@ -1,4 +1,4 @@
-package com.example.expense.tracker.Repository;
+package com.example.expense.tracker.repository;
 
 import java.util.UUID;
 

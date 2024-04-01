@@ -1,4 +1,4 @@
-package com.example.expense.tracker.Repository;
+package com.example.expense.tracker.repository;
 
 import com.example.expense.tracker.model.User;
 import org.junit.jupiter.api.Test;

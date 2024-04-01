@@ -2,7 +2,7 @@ package com.example.expense.tracker.controller;
 
 import com.example.expense.tracker.model.Category;
 import com.example.expense.tracker.model.CategoryRequest;
-import com.example.expense.tracker.Service.CategoryService;
+import com.example.expense.tracker.service.CategoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

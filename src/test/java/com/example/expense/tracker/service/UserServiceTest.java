@@ -1,6 +1,6 @@
-package com.example.expense.tracker.Service;
+package com.example.expense.tracker.service;
 
-import com.example.expense.tracker.Repository.UserRepository;
+import com.example.expense.tracker.repository.UserRepository;
 import com.example.expense.tracker.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
