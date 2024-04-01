@@ -44,4 +44,8 @@ public class CategoryService {
     public Category getCategoryByName(String name) {
         return categoryRepository.findByName(name);
     }
+
+    public Category getCategoryById(Long id) {
+        return null;
+    }
 }

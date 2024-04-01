@@ -23,9 +23,9 @@ public class CategoryController {
         return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{name}")
-    public ResponseEntity<Category> updateCategory(@PathVariable String name, @RequestBody CategoryRequest categoryRequest) {
-        Category updatedCategory = categoryService.updateCategory(name, categoryRequest);
+    @PutMapping("/{id}")
+    public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody CategoryRequest categoryRequest) {
+        Category updatedCategory = categoryService.updateCategory(String.valueOf(id), categoryRequest);
         if (updatedCategory != null) {
             return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
         } else {
@@ -33,9 +33,9 @@ public class CategoryController {
         }
     }
 
-    @DeleteMapping("/{name}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable String name) {
-        boolean deleted = categoryService.deleteCategory(name);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+        boolean deleted = categoryService.deleteCategory(String.valueOf(id));
         if (deleted) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
@@ -49,9 +49,9 @@ public class CategoryController {
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Category> getCategoryByName(@PathVariable String name) {
-        Category category = categoryService.getCategoryByName(name);
+    @GetMapping("/{id}")
+    public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
+        Category category = categoryService.getCategoryById(id);
         if (category != null) {
             return new ResponseEntity<>(category, HttpStatus.OK);
         } else {
