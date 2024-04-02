@@ -1,8 +1,10 @@
 package com.example.expense.tracker.model;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Data
 @Document(collection = "transaction")
 public class Transaction {
     @Id
@@ -20,57 +22,5 @@ public class Transaction {
         this.category = category;
         this.description = description;
         this.type = type;
-    }
-
-    // Getters and Setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "id='" + id + '\'' +
-                ", amount=" + amount +
-                ", category='" + category + '\'' +
-                ", description='" + description + '\'' +
-                ", type='" + type + '\'' +
-                '}';
     }
 }

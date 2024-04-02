@@ -1,15 +1,16 @@
 package com.example.expense.tracker.model;
 
-import lombok.Getter;
-import org.bson.types.ObjectId;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Getter
-@Document(collection = "categories")
+import java.util.UUID;
+
+@Data
+@Document(collection = "category")
 public class Category {
     @Id
-    private ObjectId id;
+    private UUID id;
     private String name;
 
     public Category(String name) {
@@ -18,9 +19,5 @@ public class Category {
 
     public Category() {
 
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
