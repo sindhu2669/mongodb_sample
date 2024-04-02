@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/home/api/transaction")
+@RequestMapping("/api/transaction")
 public class TransactionController {
 
     @Autowired
     private TransactionService transactionService;
 
-    // Transaction Management APIs
+
     @GetMapping
     public ResponseEntity<List<Transaction>> getAllTransactions() {
         List<Transaction> transactions = transactionService.getAllTransactions(); // Change to transactionService
@@ -60,5 +60,4 @@ public class TransactionController {
         }
     }
 
-    // Other transaction-related APIs can be added here
 }

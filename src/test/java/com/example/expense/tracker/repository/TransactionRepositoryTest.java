@@ -18,7 +18,6 @@ class TransactionRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        // Clear the database before each test method
         transactionRepository.deleteAll();
     }
 
@@ -31,13 +30,10 @@ class TransactionRepositoryTest {
         transaction.setCategory("Test Category");
         transaction.setType("Test Type");
 
-        // Save the transaction to the repository
         transactionRepository.save(transaction);
 
-        // Fetch the saved transaction from the repository
         List<Transaction> transactions = transactionRepository.findAll();
 
-        // Verify that the transaction is saved and fetched correctly
         assertEquals(1, transactions.size());
         assertEquals("Test Transaction", transactions.get(0).getDescription());
         assertEquals(100.0, transactions.get(0).getAmount());

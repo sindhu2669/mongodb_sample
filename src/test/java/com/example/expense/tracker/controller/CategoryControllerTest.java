@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 class CategoryControllerTest {
@@ -47,9 +47,9 @@ class CategoryControllerTest {
     void testUpdateCategory() {
         CategoryRequest request = new CategoryRequest("Updated Test Category");
         Category updatedCategory = new Category("Updated Test Category");
-        when(categoryService.updateCategory(anyString(), any())).thenReturn(updatedCategory);
+        when(categoryService.updateCategory(String.valueOf(any(Long.class)), any())).thenReturn(updatedCategory);
 
-        ResponseEntity<Category> responseEntity = categoryController.updateCategory("Test Category", request);
+        ResponseEntity<Category> responseEntity = categoryController.updateCategory(1L, request);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(updatedCategory, responseEntity.getBody());
@@ -57,12 +57,12 @@ class CategoryControllerTest {
 
     @Test
     void testDeleteCategory() {
-        when(categoryService.deleteCategory(anyString())).thenReturn(true);
+        when(categoryService.deleteCategory(String.valueOf(any(Long.class)))).thenReturn(true);
 
-        ResponseEntity<Void> responseEntity = categoryController.deleteCategory("Test Category");
+        ResponseEntity<Void> responseEntity = categoryController.deleteCategory(1L);
 
         assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
-        verify(categoryService, times(1)).deleteCategory(anyString());
+        verify(categoryService, times(1)).deleteCategory(String.valueOf(any(Long.class)));
     }
 
     @Test
@@ -79,11 +79,11 @@ class CategoryControllerTest {
     }
 
     @Test
-    void testGetCategoryByName() {
+    void testGetCategoryById() {
         Category category = new Category("Test Category");
-        when(categoryService.getCategoryByName(anyString())).thenReturn(category);
+        when(categoryService.getCategoryById(any(Long.class))).thenReturn(category);
 
-        ResponseEntity<Category> responseEntity = categoryController.getCategoryByName("Test Category");
+        ResponseEntity<Category> responseEntity = categoryController.getCategoryById(1L);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(category, responseEntity.getBody());

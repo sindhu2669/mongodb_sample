@@ -12,8 +12,7 @@ public class User {
     private String password;
     private String email;
 
-    // Constructors, getters, and setters
-    // Constructors
+
     public User() {}
 
     public User(String username, String password, String email) {
@@ -22,7 +21,7 @@ public class User {
         this.email = email;
     }
 
-    // Getters and setters
+
     public String getId() {
         return id;
     }

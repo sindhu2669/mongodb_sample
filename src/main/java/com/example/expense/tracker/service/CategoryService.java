@@ -2,11 +2,13 @@ package com.example.expense.tracker.service;
 
 import com.example.expense.tracker.repository.CategoryRepository;
 import com.example.expense.tracker.model.Category;
+import com.example.expense.tracker.model.CategoryDto;
 import com.example.expense.tracker.model.CategoryRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
@@ -23,9 +25,9 @@ public class CategoryService {
         Category existingCategory = categoryRepository.findByName(name);
         if (existingCategory != null) {
             existingCategory.setName(categoryRequest.getName());
-            return categoryRepository.save(existingCategory);
+            categoryRepository.save(existingCategory);
         }
-        return null;
+        return existingCategory;
     }
 
     public boolean deleteCategory(String name) {
@@ -38,7 +40,8 @@ public class CategoryService {
     }
 
     public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+        List<Category> categories = categoryRepository.findAll();
+        return categories;
     }
 
     public Category getCategoryByName(String name) {

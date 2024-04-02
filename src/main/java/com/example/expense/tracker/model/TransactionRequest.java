@@ -25,6 +25,5 @@ public class TransactionRequest {
         this.type = type;
     }
 
-    // Constructors, getters, and setters
-    // You can generate constructors, getters, and setters using your IDE or lombok.
+
 }

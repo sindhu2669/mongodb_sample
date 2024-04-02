@@ -1,5 +1,8 @@
 package com.example.expense.tracker.model;
 
+import lombok.Data;
+
+@Data
 public class CategoryRequest {
     private String name;
 
@@ -10,14 +13,4 @@ public class CategoryRequest {
     public CategoryRequest(String name) {
         this.name = name;
     }
-
-    // Getters and setters
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
-

@@ -12,7 +12,6 @@ public class Transaction {
     private String description;
     private String type;
 
-    // Constructors
     public Transaction() {
     }
 
@@ -64,7 +63,6 @@ public class Transaction {
         this.type = type;
     }
 
-    // toString method (optional)
     @Override
     public String toString() {
         return "Transaction{" +

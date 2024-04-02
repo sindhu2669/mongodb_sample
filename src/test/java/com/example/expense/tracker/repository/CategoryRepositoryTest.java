@@ -18,7 +18,7 @@ public class CategoryRepositoryTest {
     private CategoryRepository categoryRepository;
 
     @InjectMocks
-    private CategoryService categoryService; // Assuming CategoryService is used in CategoryRepository
+    private CategoryService categoryService;
 
     @Test
     void testFindByName() {
@@ -26,13 +26,10 @@ public class CategoryRepositoryTest {
         String categoryName = "TestCategory";
         Category category = new Category(categoryName);
 
-        // Configure mock behavior
         when(categoryRepository.findByName(categoryName)).thenReturn(category);
 
-        // Call the method under test
         Category foundCategory = categoryRepository.findByName(categoryName);
 
-        // Verify the result
         assertEquals(category, foundCategory);
     }
 
@@ -42,13 +39,10 @@ public class CategoryRepositoryTest {
         String categoryName = "TestCategory";
         Category category = new Category(categoryName);
 
-        // Configure mock behavior
         when(categoryRepository.findCategoryByName(categoryName)).thenReturn(category);
 
-        // Call the method under test
         Category foundCategory = categoryRepository.findCategoryByName(categoryName);
 
-        // Verify the result
         assertEquals(category, foundCategory);
     }
 }
