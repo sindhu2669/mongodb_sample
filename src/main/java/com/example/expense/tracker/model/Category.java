@@ -9,8 +9,9 @@ import java.util.UUID;
 @Data
 @Document(collection = "category")
 public class Category {
+
     @Id
-    private UUID id;
+    private String id;
     private String name;
 
     public Category(String name) {

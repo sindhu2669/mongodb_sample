@@ -33,20 +33,31 @@ public class TransactionService {
     }
 
     public Transaction updateTransaction(String id, TransactionRequest transactionRequest) {
-        // Check if the transaction exists
-        if (!transactionRepository.existsById(UUID.fromString(id))) {
-            // If transaction doesn't exist, return null
+        try {
+            // Convert the string ID to the appropriate data type
+            UUID uuid = UUID.fromString(id);
+
+            // Check if the transaction exists
+            if (!transactionRepository.existsById(uuid)) {
+                // If transaction doesn't exist, return null
+                return null;
+            }
+
+            // If transaction exists, update its properties and save
+            Transaction existingTransaction = transactionRepository.findById(uuid).orElse(null);
+            existingTransaction.setDescription(transactionRequest.getDescription());
+            existingTransaction.setAmount(transactionRequest.getAmount());
+            existingTransaction.setCategory(transactionRequest.getCategory());
+            existingTransaction.setType(transactionRequest.getType());
+            return transactionRepository.save(existingTransaction);
+        } catch (IllegalArgumentException e) {
+            // Log the error or handle it accordingly
+            e.printStackTrace();
             return null;
         }
-
-        // If transaction exists, update its properties and save
-        Transaction existingTransaction = transactionRepository.findById(UUID.fromString(id)).orElse(null);
-        existingTransaction.setDescription(transactionRequest.getDescription());
-        existingTransaction.setAmount(transactionRequest.getAmount());
-        existingTransaction.setCategory(transactionRequest.getCategory());
-        existingTransaction.setType(transactionRequest.getType());
-        return transactionRepository.save(existingTransaction);
     }
+
+
 
     public boolean deleteTransaction(String id) {
         if (transactionRepository.existsById(UUID.fromString(id))) {

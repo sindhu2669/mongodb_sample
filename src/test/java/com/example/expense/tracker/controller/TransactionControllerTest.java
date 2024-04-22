@@ -93,7 +93,7 @@ class TransactionControllerTest {
         existingTransaction.setId(String.valueOf(Long.valueOf(id)));
         when(transactionService.updateTransaction(id, transactionRequest)).thenReturn(existingTransaction);
 
-        ResponseEntity<Transaction> responseEntity = transactionController.updateTransaction(Long.valueOf(id), transactionRequest);
+        ResponseEntity<Transaction> responseEntity = transactionController.updateTransaction(String.valueOf(Long.valueOf(id)), transactionRequest);
 
         assertNotNull(responseEntity);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());

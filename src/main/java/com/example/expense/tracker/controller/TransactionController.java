@@ -36,19 +36,20 @@ public class TransactionController {
 
     @PostMapping
     public ResponseEntity<Transaction> createTransaction(@RequestBody TransactionRequest transactionRequest) {
-        Transaction transaction = transactionService.createTransaction(transactionRequest); // Change to transactionService
+        Transaction transaction = transactionService.createTransaction(transactionRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(transaction);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Transaction> updateTransaction(@PathVariable Long id, @RequestBody TransactionRequest transactionRequest) {
-        Transaction updatedTransaction = transactionService.updateTransaction(String.valueOf(id), transactionRequest); // Change to transactionService
+    public ResponseEntity<Transaction> updateTransaction(@PathVariable String id, @RequestBody TransactionRequest transactionRequest) {
+        Transaction updatedTransaction = transactionService.updateTransaction(id, transactionRequest);
         if (updatedTransaction != null) {
             return ResponseEntity.ok(updatedTransaction);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTransaction(@PathVariable Long id) {
