@@ -17,16 +17,15 @@ public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
-
     @GetMapping
     public ResponseEntity<List<Transaction>> getAllTransactions() {
-        List<Transaction> transactions = transactionService.getAllTransactions(); // Change to transactionService
+        List<Transaction> transactions = transactionService.getAllTransactions();
         return ResponseEntity.ok(transactions);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Transaction> getTransactionById(@PathVariable Long id) {
-        Transaction transaction = transactionService.getTransactionById(String.valueOf(id)); // Change to transactionService
+        Transaction transaction = transactionService.getTransactionById(String.valueOf(id));
         if (transaction != null) {
             return ResponseEntity.ok(transaction);
         } else {
@@ -41,8 +40,8 @@ public class TransactionController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Transaction> updateTransaction(@PathVariable String id, @RequestBody TransactionRequest transactionRequest) {
-        Transaction updatedTransaction = transactionService.updateTransaction(id, transactionRequest);
+    public ResponseEntity<Transaction> updateTransaction(@PathVariable Long id, @RequestBody TransactionRequest transactionRequest) {
+        Transaction updatedTransaction = transactionService.updateTransaction(String.valueOf(id), transactionRequest);
         if (updatedTransaction != null) {
             return ResponseEntity.ok(updatedTransaction);
         } else {
@@ -50,15 +49,13 @@ public class TransactionController {
         }
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTransaction(@PathVariable Long id) {
-        boolean deleted = transactionService.deleteTransaction(String.valueOf(id)); // Change to transactionService
+        boolean deleted = transactionService.deleteTransaction(id.toString());
         if (deleted) {
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
         }
     }
-
 }
