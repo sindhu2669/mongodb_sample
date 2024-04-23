@@ -1,0 +1,45 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Grocery shopping",
+      "amount": 50.0,
+      "category": "Food",
+      "date": "2024-03-21"
+    },
+    {
+      "id": 2,
+      "description": "Gas refill",
+      "amount": 30.0,
+      "category": "Transportation",
+      "date": "2024-03-22"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Food"
+    },
+    {
+      "id": 2,
+      "name": "Transportation"
+    },
+    {
+      "id": 3,
+      "name": "Utilities"
+    }
+  ],
+  "loginRequest": {
+    "username": "admin",
+    "password": "2669"
+  },
+  "categoryRequest": {
+    "name": "Shopping"
+  },
+  "transactionRequest": {
+    "description": "Dinner with friends",
+    "amount": 60.0,
+    "category": "Food",
+    "date": "2024-03-23"
+  }
+}
